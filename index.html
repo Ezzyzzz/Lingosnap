@@ -47,43 +47,31 @@
                 <button class="btn" onclick="saveItem()">Save Item</button>
             </div>
         </div>
-
-        <!-- Saved Items Screen -->
-        <div id="saved-items-screen" class="card" style="display: none;">
-            <h1>Saved Items</h1>
-            <ul id="saved-items-list"></ul>
-            <button class="btn" onclick="backToHome()">Back to Home</button>
-        </div>
-
-        <!-- Profile Screen -->
-        <div id="profile-screen" class="card" style="display: none;">
-            <h1>User Profile</h1>
-            <p>Username: user123</p>
-            <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-pic">
-            <button class="btn" onclick="logout()">Log Out</button>
-            <h2>Report an Issue</h2>
-            <textarea id="complaint-box" placeholder="Write your complaint here..." rows="4"></textarea>
-            <button class="btn" onclick="submitComplaint()">Send</button>
-            <button class="btn" onclick="backToHome()">Back to Home</button>
-        </div>
-
-        <!-- Result Display Screen -->
-        <div id="result-screen" class="card" style="display: none;">
-            <h1 id="result-title"></h1>
-            <p id="result-description"></p>
-            <button class="btn" onclick="backToHome()">Back to Home</button>
-        </div>
-
-        <!-- Navigation Bar -->
-        <div id="navigation-bar" class="nav-bar" style="display: none;">
-            <button class="nav-btn" onclick="goToHome()">Home</button>
-            <button class="nav-btn" onclick="goToSavedItems()">Saved Items</button>
-            <button class="nav-btn" onclick="goToProfile()">Profile</button>
-        </div>
     </div>
 
-    <!-- JavaScript -->
     <script>
+        // Function to handle login
+        function login(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loginError = document.getElementById('login-error');
+
+            // Example credentials
+            const validUsername = "user";
+            const validPassword = "1234";
+
+            if (username === validUsername && password === validPassword) {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('selection-screen').style.display = 'block';
+                loginError.style.display = 'none';
+            } else {
+                loginError.style.display = 'block';
+            }
+        }
+
+        // Camera functionality
         let videoStream = null;
 
         function startCamera() {
