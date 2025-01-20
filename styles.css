@@ -120,7 +120,7 @@ button:active {
 }
 
 .curved-text-svg {
-    width: 100%; /* Make the SVG responsive */
+    width: 90%; /* Make the SVG responsive */
     max-width: 400px; /* Limit the width for better readability */
     height: auto;
     display: block;
@@ -128,7 +128,7 @@ button:active {
 }
 
 .curved-text-svg text {
-    font-size: 1rem; /* Adjust font size */
+    font-size: 0.8rem; /* Adjust font size */
     font-family: 'Poppins', sans-serif;
     fill: #3498db; /* Text color matching your theme */
 }
