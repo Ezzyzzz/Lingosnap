@@ -82,6 +82,7 @@ button {
 button:hover {
     background-color: #1d72b8;
     transform: translateY(-3px) scale(1.05);
+<<<<<<< HEAD
     box-shadow: 0 0 15px rgba(49, 140, 231, 0.6);
 }
 
@@ -136,3 +137,6 @@ button:active {
     letter-spacing: 1.5px;
     text-transform: uppercase;
 }
+=======
+    box-shadow: 0 0 15
+>>>>>>> 014cc1b198eb7e5c4b8b00a0d0013a533a5c3251
