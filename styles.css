@@ -1,52 +1,39 @@
-/* Reset default styles */
-body, h1, p, form, input, button {
+/* Reset some basic styling */
+body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-/* General body styling */
+/* General styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background-image: url('sunset.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
+    background-image: url('sunset.png'); /* Path to your background image */
+    background-size: cover; /* Make the image cover the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent tiling */
+    color: #333; /* Adjust text color for readability */
+    text-align: center;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
     margin: 0;
-    color: #333;
+    position: relative;
 }
 
-/* Curved Text Styling */
-.curved-text-container {
+body::before {
+    content: '';
     position: absolute;
-    top: 10px;
-    left: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 123, 0, 0.7), rgba(0, 123, 255, 0.7));
+    z-index: -1;
 }
 
-.curved-text {
-    font-size: 1rem;
-    font-family: 'Poppins', sans-serif;
-    color: #3498db;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    animation: blink 1.5s infinite;
-}
-
-/* Blink Animation */
-@keyframes blink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.5;
-    }
-}
-
-/* Main container styling */
+/* Container for the card */
 .container {
     background: rgba(255, 255, 255, 0.9);
     padding: 20px 30px;
@@ -55,6 +42,13 @@ body {
     text-align: center;
     max-width: 400px;
     width: 90%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add hover effect to tilt the card */
+.container:hover {
+    transform: rotateY(5deg);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* Application title */
