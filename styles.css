@@ -33,63 +33,108 @@ body::before {
     z-index: -1;
 }
 
-/* Container for the card */
 .container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 400px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    padding: 20px 40px;
     width: 90%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for hover effect */
+    animation: fadeIn 1s ease;
 }
 
-/* Add hover effect to tilt the card */
+/* Hover effect: Tilt the card and apply a shadow */
 .container:hover {
-    transform: rotateY(5deg);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    transform: rotateY(5deg) translateY(-10px); /* Slight tilt and lift */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); /* Emphasize shadow */
 }
 
-/* Application title */
-.app-title {
+h1 {
     font-size: 2rem;
     color: #2c3e50;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    animation: slideIn 1.5s ease-out;
 }
 
-/* Input field styling */
-.input-field {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-/* Button styling */
-.btn {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+button {
+    background-color: #3498db; /* Blue */
+    color: white;
     font-size: 1.2rem;
-    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn:hover {
+button:hover {
     background-color: #1d72b8;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 15px rgba(49, 140, 231, 0.6);
 }
 
-/* Error message styling */
-.error-message {
-    color: #e74c3c;
-    font-size: 0.9rem;
-    margin-top: 10px;
+button:active {
+    transform: translateY(1px);
+}
+
+.back-button {
+    background-color: #e74c3c; /* Red */
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.6);
+}
+
+.back-button:active {
+    transform: translateY(1px);
+}
+
+/* Curved Text Styling */
+.curved-text-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.curved-text-svg {
+    width: 100%; /* Make the SVG responsive */
+    max-width: 400px; /* Limit the width for better readability */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.curved-text-svg text {
+    font-size: 1rem; /* Adjust font size */
+    font-family: 'Poppins', sans-serif;
+    fill: #3498db; /* Text color matching your theme */
+}
+
+.curved-text-svg textPath {
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
