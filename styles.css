@@ -40,14 +40,12 @@ body::before {
     padding: 20px 40px;
     width: 90%;
     max-width: 400px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for hover effect */
+    transition: transform 0.3s ease;
     animation: fadeIn 1s ease;
 }
 
-/* Hover effect: Tilt the card and apply a shadow */
 .container:hover {
-    transform: rotateY(5deg) translateY(-10px); /* Slight tilt and lift */
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); /* Emphasize shadow */
+    transform: translateY(-5px) scale(1.02) rotate(1deg);
 }
 
 h1 {
