@@ -115,28 +115,34 @@ button:active {
 
 /* Curved Text Styling */
 .curved-text-container {
+    position: relative;
     margin: 20px 0;
     text-align: center;
 }
 
-.curved-text-svg {
-    width: 100%; /* Fully responsive */
-    max-width: 400px; /* Maximum size for readability */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-.curved-text-svg text {
-    font-size: 0.9rem;
+.curved-text {
+    font-size: 1rem;
     font-family: 'Poppins', sans-serif;
-    fill: #3498db;
+    color: #3498db;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    transform: rotate(-6deg);
+    position: relative;
+    width: 100%;
 }
 
-.curved-text-svg textPath {
-    letter-spacing: 2px;
-    text-transform: uppercase;
+.curved-text::before,
+.curved-text::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: translateY(-50%);
 }
+
 
 =======
     box-shadow: 0 0 15
