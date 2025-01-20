@@ -1,4 +1,3 @@
-echo "Trigger GitHub Pages" >> README.md
-git add README.md
-git commit -m "Trigger GitHub Pages redeployment"
+git add .
+git commit -m "Trigger rebuild for GitHub Pages"
 git push
