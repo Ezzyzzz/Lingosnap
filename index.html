@@ -9,45 +9,88 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Curved Text -->
+    <!-- Curved Text Section -->
     <div class="curved-text-container">
-        <p class="curved-text">Bridging Language Barriers with AR Technology</p>
+        <svg viewBox="0 0 100 50" class="curved-text-svg">
+            <path id="curve" d="M10,30 Q50,10 90,30" fill="transparent" />
+            <text>
+                <textPath href="#curve" startOffset="50%" text-anchor="middle">
+                    Bridging Language Barriers with AR Technology
+                </textPath>
+            </text>
+        </svg>
     </div>
 
-    <!-- Main Content -->
     <div class="container">
-        <!-- Login Card -->
+        <!-- Login Screen -->
         <div id="login-screen" class="card">
-            <h1 class="app-title">LingoSnap</h1>
-            <form onsubmit="login(event)" class="login-form">
-                <input id="username" type="text" class="input-field" placeholder="Enter your username" required>
-                <input id="password" type="password" class="input-field" placeholder="Enter your password" required>
+            <h1>LingoSnap</h1>
+            <p>Login to start scanning</p>
+            <form onsubmit="login(event)">
+                <input id="username" type="text" placeholder="Enter your username" required>
+                <input id="password" type="password" placeholder="Enter your password" required>
                 <button type="submit" class="btn">Log In</button>
-                <p id="login-error" class="error-message" style="display: none;">Invalid credentials. Try again.</p>
+                <p id="login-error" class="error" style="display: none;">Invalid credentials. Try again.</p>
             </form>
+        </div>
+
+        <!-- Selection Screen -->
+        <div id="selection-screen" class="card" style="display: none;">
+            <h1>What would you like to do?</h1>
+            <button class="btn" onclick="selectScanMode('object')">Scan Object</button>
+            <button class="btn" onclick="selectScanMode('word')">Scan Word</button>
+        </div>
+
+        <!-- Scanning Screen -->
+        <div id="scanning-screen" class="card" style="display: none;">
+            <h1>Scanning...</h1>
+            <video id="camera" autoplay playsinline style="width: 100%; border-radius: 10px;"></video>
+            <canvas id="canvas" style="display: none;"></canvas>
+            <button class="btn" onclick="captureImage()">Capture</button>
+            <p id="scan-result" style="display: none;">Scan Complete: <span id="scanned-item"></span></p>
+            <div id="post-scan-options" style="display: none;">
+                <button class="btn" onclick="viewCulturalTips()">View Cultural Tips</button>
+                <button class="btn" onclick="findSynonyms()">Find Synonyms</button>
+                <button class="btn" onclick="saveItem()">Save Item</button>
+            </div>
+        </div>
+
+        <!-- Saved Items Screen -->
+        <div id="saved-items-screen" class="card" style="display: none;">
+            <h1>Saved Items</h1>
+            <ul id="saved-items-list"></ul>
+            <button class="btn" onclick="backToHome()">Back to Home</button>
+        </div>
+
+        <!-- Profile Screen -->
+        <div id="profile-screen" class="card" style="display: none;">
+            <h1>User Profile</h1>
+            <p>Username: user123</p>
+            <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-pic">
+            <button class="btn" onclick="logout()">Log Out</button>
+            <h2>Report an Issue</h2>
+            <textarea id="complaint-box" placeholder="Write your complaint here..." rows="4"></textarea>
+            <button class="btn" onclick="submitComplaint()">Send</button>
+            <button class="btn" onclick="backToHome()">Back to Home</button>
+        </div>
+
+        <!-- Result Display Screen -->
+        <div id="result-screen" class="card" style="display: none;">
+            <h1 id="result-title"></h1>
+            <p id="result-description"></p>
+            <button class="btn" onclick="backToHome()">Back to Home</button>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div id="navigation-bar" class="nav-bar" style="display: none;">
+            <button class="nav-btn" onclick="goToHome()">Home</button>
+            <button class="nav-btn" onclick="goToSavedItems()">Saved Items</button>
+            <button class="nav-btn" onclick="goToProfile()">Profile</button>
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- Link to JavaScript -->
+    <script src="app.js"></script>
     <script>
-        function login(event) {
-            event.preventDefault();
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            if (username === "admin" && password === "password") {
-                alert("Login Successful!");
-            } else {
-                const error = document.getElementById("login-error");
-                error.style.display = "block";
-            }
-        }
-
         if ("serviceWorker" in navigator) {
-            navigator.serviceWorker
-                .register("./sw.js")
-                .then(() => console.log("Service Worker Registered"))
-                .catch((err) => console.error("Service Worker Registration Failed:", err));
-        }
-    </script>
-</body>
-</html>
+            navigator.serviceWorker.register(
