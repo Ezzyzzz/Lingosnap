@@ -9,16 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Curved Text Section -->
-    <div class="curved-text-container">
-        <svg viewBox="0 0 100 50" class="curved-text-svg">
-            <path id="curve" d="M10,30 Q50,10 90,30" fill="transparent" />
-            <text>
-                <textPath href="#curve" startOffset="50%" text-anchor="middle">
-                    Bridging Language Barriers with AR Technology
-                </textPath>
-            </text>
-        </svg>
+    <!-- Straight Blinking Text Section -->
+    <div class="blinking-text">
+        Bridging Language Barriers with AR Technology
     </div>
 
     <div class="container">
@@ -93,4 +86,14 @@
     <script src="app.js"></script>
     <script>
         if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register(
+            navigator.serviceWorker.register("./sw.js")
+                .then(() => {
+                    console.log("Service Worker Registered");
+                })
+                .catch(error => {
+                    console.error("Service Worker Registration Failed:", error);
+                });
+        }
+    </script>
+</body>
+</html>
