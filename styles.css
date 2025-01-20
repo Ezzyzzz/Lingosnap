@@ -6,7 +6,7 @@ body, h1, h2, h3, p {
 
 /* General styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-image: url('sunset.png'); /* Path to your background image */
     background-size: cover; /* Make the image cover the entire background */
     background-position: center; /* Center the image */
@@ -82,32 +82,4 @@ button {
 button:hover {
     background-color: #1d72b8;
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 15px rgba(49, 140, 231, 0.6);
-}
-
-button:active {
-    transform: translateY(1px);
-}
-
-.back-button {
-    background-color: #e74c3c; /* Red */
-    color: white;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 16px;
-    cursor: pointer;
-    margin-top: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.back-button:hover {
-    background-color: #c0392b;
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 15px rgba(231, 76, 60, 0.6);
-}
-
-.back-button:active {
-    transform: translateY(1px);
-}
+    box-shadow: 0 0 15
