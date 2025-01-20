@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Straight Blinking Text Section -->
+    <!-- Straight Blinking Text -->
     <div class="blinking-text">
         Bridging Language Barriers with AR Technology
     </div>
@@ -82,17 +82,43 @@
         </div>
     </div>
 
-    <!-- Link to JavaScript -->
-    <script src="app.js"></script>
+    <!-- JavaScript -->
     <script>
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("./sw.js")
-                .then(() => {
-                    console.log("Service Worker Registered");
+        let videoStream = null;
+
+        function startCamera() {
+            const video = document.getElementById('camera');
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then((stream) => {
+                    videoStream = stream;
+                    video.srcObject = stream;
                 })
-                .catch(error => {
-                    console.error("Service Worker Registration Failed:", error);
-                });
+                .catch((error) => console.error('Camera access error:', error));
+        }
+
+        function captureImage() {
+            const video = document.getElementById('camera');
+            const canvas = document.getElementById('canvas');
+            const scanResult = document.getElementById('scan-result');
+            const postScanOptions = document.getElementById('post-scan-options');
+
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+
+            const context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            const scannedItem = 'Roti Canai'; // Mock scanned result
+            document.getElementById('scanned-item').textContent = scannedItem;
+
+            scanResult.style.display = 'block';
+            postScanOptions.style.display = 'block';
+
+            // Stop the camera
+            if (videoStream) {
+                videoStream.getTracks().forEach((track) => track.stop());
+                video.srcObject = null;
+            }
         }
     </script>
 </body>
