@@ -120,23 +120,24 @@ button:active {
 }
 
 .curved-text-svg {
-    width: 90%; /* Make the SVG responsive */
-    max-width: 400px; /* Limit the width for better readability */
+    width: 100%; /* Fully responsive */
+    max-width: 400px; /* Maximum size for readability */
     height: auto;
     display: block;
     margin: 0 auto;
 }
 
 .curved-text-svg text {
-    font-size: 0.8rem; /* Adjust font size */
+    font-size: 0.9rem;
     font-family: 'Poppins', sans-serif;
-    fill: #3498db; /* Text color matching your theme */
+    fill: #3498db;
 }
 
 .curved-text-svg textPath {
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
+
 =======
     box-shadow: 0 0 15
 >>>>>>> 014cc1b198eb7e5c4b8b00a0d0013a533a5c3251
