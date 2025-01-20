@@ -6,7 +6,7 @@ body, h1, h2, h3, p {
 
 /* General styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-image: url('sunset.png'); /* Path to your background image */
     background-size: cover; /* Make the image cover the entire background */
     background-position: center; /* Center the image */
@@ -110,4 +110,29 @@ button:active {
 
 .back-button:active {
     transform: translateY(1px);
+}
+
+/* Curved Text Styling */
+.curved-text-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.curved-text-svg {
+    width: 100%; /* Make the SVG responsive */
+    max-width: 400px; /* Limit the width for better readability */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.curved-text-svg text {
+    font-size: 1rem; /* Adjust font size */
+    font-family: 'Poppins', sans-serif;
+    fill: #3498db; /* Text color matching your theme */
+}
+
+.curved-text-svg textPath {
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
